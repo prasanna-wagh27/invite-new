@@ -6,12 +6,14 @@
       </h1>
     </div>
 
-    <div class="row mt-5 text-center">
-      <div class="col-md-6 col-sm-6">
-        <button class="btn btn-primary" (click)="selectYes()">YES!!</button>
+    <div class="row mt-5 text-center justify-content-center">
+      <div class="col-6 col-md-3 mb-2 mb-md-0">
+        <button class="btn btn-primary w-100" (click)="selectYes()">
+          YES!!
+        </button>
       </div>
-      <div class="col-md-6 col-sm-6">
-        <button class="btn btn-primary" (click)="selectNo()">NO</button>
+      <div class="col-6 col-md-3">
+        <button class="btn btn-primary w-100" (click)="selectNo()">NO</button>
       </div>
     </div>
   </div>
@@ -20,7 +22,7 @@
   <div
     class="modal fade"
     id="warningModal"
-    tabindex="1"
+    tabindex="-1"
     role="dialog"
     aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true"
@@ -214,7 +216,7 @@
 
 <section class="section mt-5" *ngIf="thursdayDaySection">
   <div class="container">
-    <h1 class="text-center">Choose one for thursday</h1>
+    <h1 class="text-center">Choose one for Thursday Evening</h1>
     <div class="row justify-content-center align-items-center min-vh-100">
       <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
         <div class="card" style="width: 18rem">
@@ -262,9 +264,15 @@
 
 <section class="section mt-5" *ngIf="alternatePlan">
   <div class="container">
-    <div class="row"><h5 class="text-center">OR</h5></div>
-    <div class="row"><h5 class="text-center">ORR.</h5></div>
-    <div class="row"><h5 class="text-center">ORRRR....</h5></div>
+    <div class="row">
+      <h5 class="text-center">OR</h5>
+    </div>
+    <div class="row">
+      <h5 class="text-center">ORR.</h5>
+    </div>
+    <div class="row">
+      <h5 class="text-center">ORRRR....</h5>
+    </div>
     <div class="row">
       <h5 class="text-center">THE MAHABALESHWAR............</h5>
     </div>
@@ -277,21 +285,22 @@
           <div class="card-body">
             <h5 class="card-title">Mahabaleshwarrrrrrrrrr</h5>
             <p class="card-text">How does it Sounds??????????</p>
-            <button
-              type="button"
-              class="btn btn-outline-primary"
-              (click)="hurray()"
-            >
-              Perfectt!!
-            </button>
-
-            <button
-              type="button"
-              class="btn btn-outline-primary"
-              (click)="ohh()"
-            >
-              No way!!
-            </button>
+            <div class="d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn btn-outline-primary w-50 me-1"
+                (click)="hurray()"
+              >
+                Perfectt!!
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary w-50 ms-1"
+                (click)="ohh()"
+              >
+                No way!!
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -302,6 +311,7 @@
 <section class="section mt-5" *ngIf="final">
   <div class="container">
     <h1 class="text-center">Full Plan</h1>
+    <h3 class="text-center">Take screenshot of this</h3>
     <div class="row justify-content-center align-items-center min-vh-100">
       <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
         <ul class="list-group">
