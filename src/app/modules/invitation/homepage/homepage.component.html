@@ -1,23 +1,343 @@
-<section class="section mt-5">
+<section class="mt-5" *ngIf="arrivalSection">
   <div class="container">
-    <div class="row w-100">
-      <div class="col-md-6">
+    <div class="row">
+      <h1 class="text-center">
+        Knock knock, Pune is calling. Are you ready to come?
+      </h1>
+    </div>
+
+    <div class="row mt-5 text-center">
+      <div class="col-md-6 col-sm-6">
+        <button class="btn btn-primary" (click)="selectYes()">YES!!</button>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <button class="btn btn-primary" (click)="selectNo()">NO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="warningModal"
+    tabindex="1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="modalHide('warningModal')"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">You can't select NO, choose YES</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="travelSection">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 d-flex justify-content-center">
         <div class="card" style="width: 18rem">
-          <img src="assets\images\fc-road.jpg" class="card-img-top" alt="..." />
+          <img
+            src="assets/images/msrtcbus(4).jpg"
+            class="card-img-top"
+            alt="..."
+          />
           <div class="card-body">
-            <h5 class="card-title">FC Road</h5>
+            <h5 class="card-title">Your Travelling vehicle</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              You will travel by Roha-Shivajinagar MSRTC Bus from Nagothane
             </p>
-            <button type="button" class="btn btn-outline-primary">
-              Primary
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectBus()"
+            >
+              Okay
             </button>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <h2>Say hello to me</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="tuesdaySection">
+  <div class="container">
+    <h1 class="text-center">Now choose plan for Tuesday Night</h1>
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <div class="card" style="width: 18rem">
+          <img
+            src="assets/images/movienight.jpeg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Movie Night</h5>
+            <p class="card-text">
+              We will watch any random movie in theater. I will be paying.
+            </p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectTuesdayPlan('Movie Night')"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <div class="card" style="width: 18rem">
+          <img
+            src="assets/images/couplecooking.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Making Dinner Together</h5>
+            <p class="card-text">
+              I will bring chicken and we will fry it like last time
+            </p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectTuesdayPlan('Making Dinner Together')"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="wednesdaySection">
+  <div class="container">
+    <h1 class="text-center">Now choose plan for Wednesday Night</h1>
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <div class="card" style="width: 18rem">
+          <img src="assets/images/rooftop.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Birthday Party</h5>
+            <p class="card-text">At 11PM at whichever the place you choose.</p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectWednesdayPlan()"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="thursdayMorningSection">
+  <div class="container">
+    <h1 class="text-center">Thursday Morning Plan</h1>
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div
+        class="col-md-6 d-flex justify-content-center mb-4 mb-md-0"
+        *ngIf="temple"
+      >
+        <div class="card" style="width: 18rem">
+          <img
+            src="assets/images/Shri-dagadushteh-ganapati.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Shri DagaduSheth Ganapati</h5>
+            <p class="card-text">We will try to reach there by 9AM</p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectThursdayMorningPlan()"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-6 d-flex justify-content-center mb-4 mb-md-0"
+        *ngIf="starbucks"
+      >
+        <div class="card" style="width: 18rem">
+          <img
+            src="assets/images/starbucks.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Starbucks</h5>
+            <p class="card-text">
+              We will try to reach there by 10AM. And will spend some good time
+              there
+            </p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectThursdayMorningPlanTwo()"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="thursdayDaySection">
+  <div class="container">
+    <h1 class="text-center">Choose one for thursday</h1>
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <div class="card" style="width: 18rem">
+          <img
+            src="assets/images/si-nonnas.png"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Si Nonna's</h5>
+            <p class="card-text">Our Evening will be here</p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectThursdayPlan('Si Nonna-s, FC Road')"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <div class="card" style="width: 18rem">
+          <img
+            src="assets/images/chafa-cafe.jpeg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Chafa cafe</h5>
+            <p class="card-text">Or here? Which place do you wanna go?</p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="selectThursdayPlan('Chafa cafe, Koregaon Park')"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="alternatePlan">
+  <div class="container">
+    <div class="row"><h5 class="text-center">OR</h5></div>
+    <div class="row"><h5 class="text-center">ORR.</h5></div>
+    <div class="row"><h5 class="text-center">ORRRR....</h5></div>
+    <div class="row">
+      <h5 class="text-center">THE MAHABALESHWAR............</h5>
+    </div>
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <div class="card" style="width: 18rem">
+          <video class="card-img-top" controls>
+            <source src="assets/images/mahabaleshwar.mp4" type="video/mp4" />
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Mahabaleshwarrrrrrrrrr</h5>
+            <p class="card-text">How does it Sounds??????????</p>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="hurray()"
+            >
+              Perfectt!!
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="ohh()"
+            >
+              No way!!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5" *ngIf="final">
+  <div class="container">
+    <h1 class="text-center">Full Plan</h1>
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+        <ul class="list-group">
+          <li class="list-group-item">Tuesday Morning : Arrival in Pune</li>
+
+          <li class="list-group-item list-group-item-primary">
+            Tuesday Evening : {{ data.tuesdayPlan }}
+          </li>
+          <li class="list-group-item list-group-item-secondary">
+            Wednesday Birthday Party : At the place yo wanna go to
+          </li>
+          <li
+            class="list-group-item list-group-item-success"
+            *ngIf="!mahabaleshwar"
+          >
+            Thursday Morning : Shrimant Dagadusheth Halwai Ganpati Darshan
+          </li>
+          <li
+            class="list-group-item list-group-item-danger"
+            *ngIf="!mahabaleshwar"
+          >
+            Thursday Morning : Starbucks
+          </li>
+          <li
+            class="list-group-item list-group-item-warning"
+            *ngIf="!mahabaleshwar"
+          >
+            Thursday Evening : {{ data.thursdayDayPlan }}
+          </li>
+          <li
+            class="list-group-item list-group-item-info"
+            *ngIf="mahabaleshwar"
+          >
+            Thursday Plan : Mahabaleshwarrrrrrrrrr!!!!!!!!!
+          </li>
+        </ul>
       </div>
     </div>
   </div>
